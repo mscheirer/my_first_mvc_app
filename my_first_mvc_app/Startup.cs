@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using my_first_mvc_app.Data;
 
 namespace my_first_mvc_app
 {
@@ -24,6 +26,9 @@ namespace my_first_mvc_app
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<my_first_mvc_appDBContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("my_first_mvc_appDBContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

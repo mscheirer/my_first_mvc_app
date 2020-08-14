@@ -20,10 +20,5 @@ namespace my_first_mvc_app.Models
         public string Email { get; set; }
     }
 
-    public enum ContactType
-    {
-        Person = 0,
-
-        Company
-    }
+    
 }
